@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class myStoreVO {
     private int id;
+    private String manager;
     private int floor;
     private String name;
     private String seller;
@@ -19,6 +20,14 @@ public class myStoreVO {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
     }
 
     public int getFloor() {

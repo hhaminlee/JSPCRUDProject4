@@ -48,6 +48,7 @@ a{
 <table id="list" width="90%">
 <tr>
 	<th>#</th>
+	<th>담당자</th>
 	<th>층수</th>
 	<th>상품명</th>
 	<th>판매회사</th>
@@ -61,6 +62,7 @@ a{
 <c:forEach items="${list}" var="u">
 	<tr>
 		<td>${u.getId()}</td>
+		<td>${u.getManager()}</td>
 		<td>${u.getFloor()}</td>
 		<td>${u.getName()}</td>
 		<td>${u.getSeller()}</td>

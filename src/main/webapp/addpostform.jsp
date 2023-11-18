@@ -11,6 +11,7 @@
 <h1>새 상품 등록</h1>
 <form action="addpost.jsp" method="post">
 <table>
+<tr><td>담당자:</td><td><input type="text" name="manager"/></td></tr>
 <tr><td>층수:</td><td><input type="text" name="floor"/></td></tr>
 <tr><td>품명:</td><td><input type="text" name="name"/></td></tr>
 <tr><td>판매회사:</td><td><input type="text" name="seller"/></td></tr>

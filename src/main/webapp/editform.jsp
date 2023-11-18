@@ -19,6 +19,7 @@
 <form action="editpost.jsp" method="post">
 <input type="hidden" name="id" value="<%=u.getId() %>"/>
 <table>
+<tr><td>담당자:</td><td><input type="text" name="manager" value="<%= u.getManager()%>" /></td></tr>
 <tr><td>층수:</td><td><input type="text" name="floor" value="<%= u.getFloor()%>"/></td></tr>
 <tr><td>상품명:</td><td><input type="text" name="name" value="<%= u.getName()%>" /></td></tr>
 <tr><td>판매회사:</td><td><input type="text" name="seller" value="<%= u.getSeller()%>" /></td></tr>

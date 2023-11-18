@@ -14,8 +14,8 @@ public class myStoreDAO {
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
-    private final String myStore_INSERT = "insert into myStore(floor, name, seller, ordering, price, remain) values(?,?,?,?,?,?)";
-    private final String myStore_UPDATE = "update myStore set floor=?, name=?, seller=?, ordering=?,price=?,remain=? where id=?";
+    private final String myStore_INSERT = "insert into myStore(manager, floor, name, seller, ordering, price, remain) values(?,?,?,?,?,?,?)";
+    private final String myStore_UPDATE = "update myStore set manager=?, floor=?, name=?, seller=?, ordering=?,price=?,remain=? where id=?";
     private final String myStore_DELETE = "delete from myStore where id=?";
     private final String myStore_GET = "select * from myStore where id=?";
     private final String myStore_LIST = "select * from myStore order by id desc";
@@ -24,12 +24,13 @@ public class myStoreDAO {
         try{
             conn = MariaDBUtill.getConnection();
             stmt = conn.prepareStatement(myStore_INSERT);
-            stmt.setInt(1, vo.getFloor());
-            stmt.setString(2, vo.getName());
-            stmt.setString(3, vo.getSeller());
-            stmt.setString(4, vo.getOrdering());
-            stmt.setString(5, vo.getPrice());
-            stmt.setInt(6, vo.getRemain());
+            stmt.setString(1, vo.getManager());
+            stmt.setInt(2, vo.getFloor());
+            stmt.setString(3, vo.getName());
+            stmt.setString(4, vo.getSeller());
+            stmt.setString(5, vo.getOrdering());
+            stmt.setString(6, vo.getPrice());
+            stmt.setInt(7, vo.getRemain());
             stmt.executeUpdate();
             return 1;
         } catch (Exception e) {
@@ -54,16 +55,17 @@ public class myStoreDAO {
         try {
             conn = MariaDBUtill.getConnection();
             stmt = conn.prepareStatement(myStore_UPDATE);
-            stmt.setInt(1, vo.getFloor());
-            stmt.setString(2, vo.getName());
-            stmt.setString(3, vo.getSeller());
-            stmt.setString(4, vo.getOrdering());
-            stmt.setString(5, vo.getPrice());
-            stmt.setInt(6, vo.getRemain());
-            stmt.setInt(7, vo.getId());
+            stmt.setString(1, vo.getManager());
+            stmt.setInt(2, vo.getFloor());
+            stmt.setString(3, vo.getName());
+            stmt.setString(4, vo.getSeller());
+            stmt.setString(5, vo.getOrdering());
+            stmt.setString(6, vo.getPrice());
+            stmt.setInt(7, vo.getRemain());
+            stmt.setInt(8, vo.getId());
 
 
-            System.out.println(vo.getFloor() + "-" + vo.getName() + "-" + vo.getSeller() + "-"
+            System.out.println(vo.getManager()+"-"+ vo.getFloor() + "-" + vo.getName() + "-" + vo.getSeller() + "-"
                     + vo.getOrdering()+vo.getPrice()+"-"+vo.getRemain() + "-" + vo.getId());
             stmt.executeUpdate();
             return 1;
@@ -84,6 +86,7 @@ public class myStoreDAO {
             rs = stmt.executeQuery();
             if(rs.next()) {
                 one.setId(rs.getInt("id"));
+                one.setManager(rs.getString("manager"));
                 one.setFloor(rs.getInt("floor"));
                 one.setName(rs.getString("name"));
                 one.setSeller(rs.getString("seller"));
@@ -109,6 +112,7 @@ public class myStoreDAO {
             while(rs.next()) {
                 myStoreVO one = new myStoreVO();
                 one.setId(rs.getInt("id"));
+                one.setManager(rs.getString("manager"));
                 one.setFloor(rs.getInt("floor"));
                 one.setName(rs.getString("name"));
                 one.setSeller(rs.getString("seller"));
