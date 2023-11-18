@@ -20,7 +20,7 @@ public class myStoreDAO {
     private final String myStore_GET = "select * from myStore where id=?";
     private final String myStore_LIST = "select * from myStore order by id desc";
     public int insertMyStore(myStoreVO vo){
-        System.out.println("===> JDBC로 insertBoard() 기능 처리");
+        System.out.println("===> JDBC로 insertMyStore() 기능 처리");
         try{
             conn = MariaDBUtill.getConnection();
             stmt = conn.prepareStatement(myStore_INSERT);
@@ -40,7 +40,7 @@ public class myStoreDAO {
     }
     // 글 삭제
     public void deleteMyStore(myStoreVO vo) {
-        System.out.println("===> JDBC로 deleteBoard() 기능 처리");
+        System.out.println("===> JDBC로 deleteMyStore() 기능 처리");
         try {
             conn = MariaDBUtill.getConnection();
             stmt = conn.prepareStatement(myStore_DELETE);
@@ -51,7 +51,7 @@ public class myStoreDAO {
         }
     }
     public int updateMyStore(myStoreVO vo) {
-        System.out.println("===> JDBC로 updateBoard() 기능 처리");
+        System.out.println("===> JDBC로 updateMyStore() 기능 처리");
         try {
             conn = MariaDBUtill.getConnection();
             stmt = conn.prepareStatement(myStore_UPDATE);
@@ -78,7 +78,7 @@ public class myStoreDAO {
 
     public myStoreVO getMyStore(int seq) {
         myStoreVO one = new myStoreVO();
-        System.out.println("===> JDBC로 getBoard() 기능 처리");
+        System.out.println("===> JDBC로 getMyStore() 기능 처리");
         try {
             conn = MariaDBUtill.getConnection();
             stmt = conn.prepareStatement(myStore_GET);
@@ -104,7 +104,7 @@ public class myStoreDAO {
 
     public List<myStoreVO> getMyStoreList(){
         List<myStoreVO> list = new ArrayList<myStoreVO>();
-        System.out.println("===> JDBC로 getBoardList() 기능 처리");
+        System.out.println("===> JDBC로 getMyStoreList() 기능 처리");
         try {
             conn = MariaDBUtill.getConnection();
             stmt = conn.prepareStatement(myStore_LIST);
