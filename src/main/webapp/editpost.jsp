@@ -8,7 +8,7 @@
 <jsp:setProperty property="*" name="u"/>
 
 <%
-	myStoreDAO boardDAO = new myStoreDAO();
-	int i =boardDAO.updateMyStore(u);
+	myStoreDAO myStoreDAO = new myStoreDAO();
+	int i =myStoreDAO.updateMyStore(u);
 	response.sendRedirect("posts.jsp");
 %>

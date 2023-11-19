@@ -64,7 +64,7 @@ a{
 		<td>${u.getId()}</td>
 		<td>${u.getManager()}</td>
 		<td>${u.getFloor()}</td>
-		<td>${u.getName()}</td>
+		<td><a href="view.jsp?id=${u.getId()}">${u.getName()}</td>
 		<td>${u.getSeller()}</td>
 		<td>${u.getOrdering()}</td>
 		<td>${u.getPrice()}</td>
