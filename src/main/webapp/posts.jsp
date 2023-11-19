@@ -40,6 +40,7 @@ a{
 </head>
 <body>
 <h1>재고관리 시스템 - 재고왕 v3</h1>
+<h5>상품명을 클릭하면 상세정보로 넘어갑니다.</h5>
 <%
 	myStoreDAO dao = new myStoreDAO();
 	List<myStoreVO> list = dao.getMyStoreList();
