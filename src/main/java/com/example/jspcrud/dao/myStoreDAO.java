@@ -6,6 +6,7 @@ import com.example.jspcrud.utill.MariaDBUtill;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -130,4 +131,29 @@ public class myStoreDAO {
         return list;
     }
 
+    public myStoreVO getOne(int sid) {
+        myStoreVO one = null;
+        conn = MariaDBUtill.getConnection();
+        try {
+            stmt = conn.prepareStatement(myStore_GET);
+            stmt.setInt(1, sid);
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                one = new myStoreVO();
+                one.setId(rs.getInt("id"));
+                one.setManager(rs.getString("manager"));
+                one.setFloor(rs.getInt("floor"));
+                one.setName(rs.getString("name"));
+                one.setSeller(rs.getString("seller"));
+                one.setOrdering(rs.getString("ordering"));
+                one.setPrice(rs.getString("price"));
+                one.setRemain(rs.getInt("remain"));
+                one.setRegdate(rs.getDate("regdate"));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return one;
+    }
 }
